@@ -4,7 +4,7 @@
 ```
 docker network create wp-network
 
-docker run -d --name mariadb \
+docker run -d --name=mariadb \
     --net wp-network \
     -v db_data:/var/lib/mysql \
     -e MYSQL_DATABASE=demodb \
@@ -17,13 +17,11 @@ docker run -d --name mariadb \
 
 docker run --name myadmin -d \
     --net wp-network \
-    -e PMA_HOST=demodb \
-    -e PMA_USER=admin \
-    -e PMA_PASSWORD=pass \
-    -p 81:80 phpmyadmin
-
+    --link mariadb:db \
+    -p 80:80 phpmyadmin/phpmyadmin
     
-docker run -d --name wordpress \
+   
+docker run -d --name=wordpress \
     --net wp-network \
     -p 80:80 \
     -v wordpress:/var/www/html \
