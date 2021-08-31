@@ -19,6 +19,8 @@ docker run -d --name wordpress \
     --net wp-network \
     -p 80:8080 \
     -v wordpress:/var/www/html \
+    -e WORDPRESS_DB_HOST=mariadb \
+    -e WORDPRESS_DB_NAME=demodb \
     -e WORDPRESS_DB_USER=admin \
     -e WORDPRESS_DB_PASSWORD=pass \
     wordpress
