@@ -14,7 +14,7 @@ git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
 docker-compose -f maria-wp-php.yml up -d
 docker ps
-docker-compose -f maria-wp-php.yml down -d
+docker-compose -f maria-wp-php.yml down
 ```
 
 - docker compose services for Mariadb, phpadmin and wordpress
@@ -22,7 +22,7 @@ docker-compose -f maria-wp-php.yml down -d
 ```
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
-docker-compose -f maria-wp-php.yml up -d --scale db=2 --scale myadmin=2 --scale wordpress=3
+docker-compose -f maria-wp-php.yml up -d --scale db=2 --scale myadmin=1 --scale wordpress=1
 docker ps
-docker-compose -f maria-wp-php.yml down -d
+docker-compose -f maria-wp-php.yml down
 ```
