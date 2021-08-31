@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: pass
+      WORDPRESS_DB_NAME: demodb
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mariadb:10.4
+    restart: always
+    environment:
+      MYSQL_DATABASE: demodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pass
+      MYSQL_RANDOM_ROOT_PASSWORD: pass
+      MYSQL_ALLOW_EMPTY_PASSWORD: no
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:
