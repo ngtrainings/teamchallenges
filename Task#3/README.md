@@ -14,18 +14,26 @@ docker run -d --name mariadb \
     -e MYSQL_RANDOM_ROOT_PASSWORD=pass \
     mariadb:10.4
 
+
+docker run --name myadmin -d \
+    --net wp-network \
+    -e PMA_HOST=demodb \
+    -e PMA_USER=admin \
+    -e PMA_PASSWORD=pass \
+    -p 81:80 phpmyadmin
+
     
 docker run -d --name wordpress \
     --net wp-network \
-    -p 80:8080 \
+    -p 80:80 \
     -v wordpress:/var/www/html \
     -e WORDPRESS_DB_HOST=mariadb \
     -e WORDPRESS_DB_NAME=demodb \
     -e WORDPRESS_DB_USER=admin \
     -e WORDPRESS_DB_PASSWORD=pass \
     wordpress
-    
   
 
 open WebPreview at portno: 80
+open WebPreview at portno: 81
 ```
