@@ -4,6 +4,17 @@
 ```
 docker network create wp-network
 
+docker run -d --name mariadb \
+    --net wp-network \
+    -v db_data:/var/lib/mysql \
+    -e MYSQL_DATABASE=demodb \
+    -e MYSQL_USER=admin \
+    -e MYSQL_PASSWORD=pass \
+    -e MYSQL_ALLOW_EMPTY_PASSWORD=no \
+    -e MYSQL_RANDOM_ROOT_PASSWORD=pass \
+    mariadb:10.4
+
+    
 docker run -d --name wordpress \
     --net wp-network \
     -p 80:8080 \
@@ -11,6 +22,8 @@ docker run -d --name wordpress \
     -e WORDPRESS_DB_USER=admin \
     -e WORDPRESS_DB_PASSWORD=pass \
     wordpress
+    
+  
 
 open WebPreview at portno: 80
 ```
