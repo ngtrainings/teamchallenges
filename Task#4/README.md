@@ -22,7 +22,7 @@ docker-compose -f maria-wp-php.yml down -d
 ```
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
-docker-compose maria-wp-php.yml up -d --scale db=2 myadmin=2 wordpress=3
+docker-compose -f maria-wp-php.yml up -d --scale db=2 --scale myadmin=2 --scale wordpress=3
 docker ps
-docker-compose maria-wp-php.yml down -d
+docker-compose -f maria-wp-php.yml down -d
 ```
