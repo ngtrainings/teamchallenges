@@ -2,9 +2,9 @@
 ```
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
-docker-compose mongo.yml up -d
+docker-compose -f mongo.yml up -d
 docker ps
-docker-compose mongo.yml down -d
+docker-compose -f mongo.yml down -d
 ```
 
 - docker compose services for Mariadb, phpadmin and wordpress
@@ -12,9 +12,9 @@ docker-compose mongo.yml down -d
 ```
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
-docker-compose maria-wp-php.yml up -d
+docker-compose -f maria-wp-php.yml up -d
 docker ps
-docker-compose maria-wp-php.yml down -d
+docker-compose -f maria-wp-php.yml down -d
 ```
 
 - docker compose services for Mariadb, phpadmin and wordpress
