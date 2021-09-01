@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  cmariadb:
+    image: mariadb:10.4
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: demodb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: rootpwd
+    volumes:
+      - db:/var/lib/mysql
+
+  cmyadmin:
+    image : phpmyadmin:5.1
+    restart: always
+    ports:
+      - 81:80
+    links:
+      - cmariadb:db
+    depends_on: ['cmariadb']
+
+  cwordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: cmariadb
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: pass
+      WORDPRESS_DB_NAME: demodb
+    volumes:
+      - wpc:/var/www/html
+      - wpl:/var/log
+    depends_on: ['cmariadb']
+
+volumes:
+  wpc:
+  wpl:
+  db:
