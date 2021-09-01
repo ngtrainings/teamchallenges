@@ -6,7 +6,7 @@ kubectl apply -f kube
 status=true 
 while $status
 do
-echo 'pods not ready yet -->'$status
+echo 'work in progress -> pods not ready yet'
 count=`kubectl get pods | grep -i running | wc -l`
 status=`if [[ $count -gt 0 ]]; then echo false; else echo true; fi`
 done
@@ -17,4 +17,8 @@ curl $url
 
 #delete services, pods
 kubectl delete all --all --all-namespaces
+
+#scale up pods
+kubectl scale --replicas=2 deployment/knote
+kubectl get pods -l app=knote --watch
 ```
