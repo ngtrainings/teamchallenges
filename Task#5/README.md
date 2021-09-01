@@ -1,5 +1,4 @@
-- add task header
+- run a "Hello World" application on Kubernetes so that I can understand kubernetes is up and running and some sample application is also up and running
 ```
-git clone https://github.com/ngtrainings/teamchallenges.git
 add commands
 ```
