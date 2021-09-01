@@ -1,5 +1,7 @@
 - run a "Hello World" application on Kubernetes and scale up
 ```
+clink on https://learning.oreilly.com/scenarios/deploy-containers-to/9781492061984/ url and wait for k8s to luanch and execute below commands
+
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#5
 kubectl apply -f kube
