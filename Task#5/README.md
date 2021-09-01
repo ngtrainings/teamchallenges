@@ -9,6 +9,7 @@ do
 echo 'work in progress -> pods not ready yet'
 count=`kubectl get pods | grep -i running | wc -l`
 status=`if [[ $count -gt 0 ]]; then echo false; else echo true; fi`
+sleep 2
 done
 kubectl get pods
 kubectl get services
