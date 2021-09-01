@@ -18,7 +18,7 @@ docker run -d --name=mariadb \
 docker run --name myadmin -d \
     --net wp-network \
     --link mariadb:db \
-    -p 80:80 phpmyadmin/phpmyadmin
+    -p 81:80 phpmyadmin/phpmyadmin
     
    
 docker run -d --name=wordpress \
@@ -32,7 +32,8 @@ docker run -d --name=wordpress \
     -e WORDPRESS_DB_PASSWORD=pass \
     wordpress
   
-
+# wordpress 
 open WebPreview at portno: 80
+# phpmyadmin 
 open WebPreview at portno: 81
 ```
