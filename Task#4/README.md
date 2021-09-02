@@ -14,6 +14,8 @@ git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#4
 docker-compose -f maria-wp-php.yml up -d
 docker ps
+
+# bring down the services
 docker-compose -f maria-wp-php.yml down
 ```
 
