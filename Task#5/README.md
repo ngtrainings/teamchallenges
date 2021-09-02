@@ -26,3 +26,37 @@ kubectl delete all --all --all-namespaces
 kubectl scale --replicas=2 deployment/knote
 kubectl get pods -l app=knote --watch
 ```
+
+
+- Kubernetes Dashboard in katakoda
+```
+click on https://learning.oreilly.com/scenarios/deploy-containers-to/9781492061984/
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+kubectl -n kubernetes-dashboard get svc
+kubectl -n kubernetes-dashboard edit svc kubernetes-dashboard ( ClusterIP to NodePort )
+
+#serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dashboard-admin
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-admin-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: dashboard-admin
+  namespace: kube-system
+
+kubectl apply -f serviceaccount.yaml
+kubectl -n kube-system describe sa dashboard-admin
+kubectl -n kube-system describe secrets dashboard-admin-token-hf7xm (  token name may change )
+```
