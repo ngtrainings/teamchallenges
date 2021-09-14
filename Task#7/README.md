@@ -383,8 +383,8 @@ spec:
 #### Commands
 - `kubectl apply -f kube-v1.yml`
 - `kubectl apply -f deployment-v2.yml`
-- `kubectl apply -f service-v1.yml
-- `kubectl apply -f service-v2.yml
+- `kubectl apply -f service-v1.yml`
+- `kubectl apply -f service-v2.yml`
 
 ### Type 2
 - Create V3 version along with Service object
