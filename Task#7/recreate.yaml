@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-helloworld-recreate
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-helloworld-recreate
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: springboot-helloworld-recreate
+    spec:
+      containers:
+        - name: springboot-helloworld-recreate
+          image: 'ngtrainings/springboot-helloworld-master:v1'
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-helloworld-recreate-svc
+  labels:
+    name: springboot-helloworld-recreate
+spec:
+  selector:
+    app: springboot-helloworld-recreate
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  type: NodePort
