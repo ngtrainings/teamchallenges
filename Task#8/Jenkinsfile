@@ -1,0 +1,37 @@
+pipeline {
+    environment {
+        def mavenHome = tool name:"Maven-3.6.1", type:"maven"
+        def mavenCMD = "${mavenHome}/bin/mvn"
+    }
+    
+    agent any
+
+    stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ngtrainings/HelloWorld/'
+            }
+        }
+        stage('Maven clean build') {
+            steps {
+                sh "${mavenCMD} -f springboot-helloworld-master/pom.xml clean install"
+            }
+        }
+        stage('Build Docker Images') {
+            steps {
+                sh "docker build -t ngtrainings/springboot-helloworld-master:v2"
+            }
+        }
+	stage('Docker Images push to Registory') {
+            steps {
+		sh "docker login -u ngtrainings -p << updated password before run>>"
+                sh "docker push ngtrainings/springboot-helloworld-master:v2"
+            }
+        }
+	stage('Deploy docker Images in k8s') {
+            steps {
+		sh "kubectl apply -f helloworld.yaml"
+            }
+        }
+    }
+}
