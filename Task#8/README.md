@@ -1,5 +1,10 @@
-- Blue - Green deployment strategy in K8s via Jenkins CI/CD pipelines
+- docker images publish to docker hub via Jenkins CI/CD pipelines
 ```
 git clone https://github.com/ngtrainings/teamchallenges.git
-add commands
+
+Add Maven-3.6.1 in global configuration
+
+create new jenkins pipeline job
+
+
 ```
