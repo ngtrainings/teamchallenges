@@ -34,6 +34,30 @@ springboot-helloworld-master
 - `kubectl apply -f green-v2.yaml`
 - `kubectl apply -f switch-blue-to-green.yaml`
 - `kubectl delete service/springboot-helloworld-svc-green deployment.apps/springboot-helloworld-v1`
+```
+git clone https://github.com/ngtrainings/teamchallenges.git
+cd teamchallenges/Task#7
+
+kubectl apply -f blue-v1.yaml
+kubectl apply -f green-v2.yaml
+
+status=true 
+while $status
+do
+echo 'work in progress -> pods not ready yet'
+count=`kubectl get pods | grep -i running | wc -l`
+status=`if [[ $count -gt 5 ]]; then echo false; else echo true; fi`
+sleep 5
+done
+kubectl get pods
+kubectl get services
+echo 'blue service url shows V1 -> '
+url_blue=`minikube service springboot-helloworld-svc --url`
+curl $url_blue
+url_green=`minikube service springboot-helloworld-svc-green --url`
+echo 'green service url shows V2 -> '
+curl $url_green
+```
 
 
 ## Canary Deployments
