@@ -93,6 +93,28 @@ Using Tags in Kubernetes
 - `kubectl apply -f service-v1.yml`
 - add "v2" for version in the Service object
 - `kubectl apply -f service-v2.yml`
+```
+kubectl apply -f deployment-v1.yaml
+kubectl apply -f deployment-v2.yaml
+
+echo 'service url post v1 version applied. shows only V1 -> '
+url=`minikube service springboot-helloworld --url`
+curl $url
+
+--Update Service to remove "version" tag.
+kubectl apply -f service-v1.yaml
+
+echo 'service url post blue to green swtich shows V1 or V2 -> '
+url=`minikube service springboot-helloworld --url`
+curl $url
+
+--add "v2" for version in the Service object
+kubectl apply -f service-v2.yaml
+
+echo 'service url post v2 version applied. shows only V2 -> '
+url=`minikube service springboot-helloworld --url`
+curl $url
+```
 
 ### Type 2 using Ingress
 - Create V3 version along with Service object
