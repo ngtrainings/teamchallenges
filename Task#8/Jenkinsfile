@@ -2,7 +2,7 @@ pipeline {
     environment {
         def mavenHome = tool name:"Maven-3.6.1", type:"maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
-	DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
+	//DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
     }
     
     agent any
