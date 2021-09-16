@@ -2,6 +2,7 @@ pipeline {
     environment {
         def mavenHome = tool name:"Maven-3.6.1", type:"maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
+	DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
     }
     
     agent any
@@ -24,8 +25,8 @@ pipeline {
         }
 	stage('Docker Images push to Registory') {
             steps {
-		sh "docker login -u ngtrainings -p << updated password before run>>"
-                sh "docker push ngtrainings/springboot-helloworld-master:v2"
+		sh 'docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW} registry.gitlab.com'
+                sh "docker push ngtrainings/springboot-helloworld-master:v2"        	
             }
         }
 	stage('Deploy docker Images in k8s') {
