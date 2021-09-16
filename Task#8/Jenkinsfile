@@ -20,18 +20,21 @@ pipeline {
         }
         stage('Build Docker Images') {
             steps {
-                sh "docker build -t ngtrainings/springboot-helloworld-master:v2"
+		sh "build images"
+                //sh "docker build -t ngtrainings/springboot-helloworld-master:v2"
             }
         }
 	stage('Docker Images push to Registory') {
             steps {
-		sh 'docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW} registry.gitlab.com'
-                sh "docker push ngtrainings/springboot-helloworld-master:v2"        	
+		sh "push Images to dockerhub"
+		//sh "docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW}"
+                //sh "docker push ngtrainings/springboot-helloworld-master:v2"        	
             }
         }
 	stage('Deploy docker Images in k8s') {
             steps {
-		sh "kubectl apply -f helloworld.yaml"
+		sh "Deploy docker Images in k8s"
+		//sh "kubectl apply -f helloworld.yaml"
             }
         }
     }
