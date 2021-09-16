@@ -57,6 +57,27 @@ curl $url_blue
 url_green=`minikube service springboot-helloworld-svc-green --url`
 echo 'green service url shows V2 -> '
 curl $url_green
+
+
+kubectl apply -f switch-blue-to-green.yaml
+
+url_green=`minikube service springboot-helloworld-svc-green --url`
+echo 'green service url shows V2 -> '
+curl $url_green
+
+echo 'blue service url post blue to green swtich shows V2 -> '
+url_blue=`minikube service springboot-helloworld-svc --url`
+curl $url_blue
+
+kubectl delete service/springboot-helloworld-svc-green deployment.apps/springboot-helloworld-v1
+
+
+echo 'blue service url post green instance delete. shows V2 -> '
+url_blue=`minikube service springboot-helloworld-svc --url`
+curl $url_blue
+
+kubectl get pod -o wide
+
 ```
 
 
