@@ -19,12 +19,15 @@ create new jenkins pipeline job
 Create new build_simple_java pipeline https://github.com/ngtrainings/teamchallenges.git
 prefix jenkinsfile name with teamchallenges/Task#5
 Submit new build
+Go to terminal and run jar file
+cd /var/jenkins_home/workspace/jenkin-docker-integration/target/
+java -jar HelloNextGen-0.0.1-SNAPSHOT.jar
 
 ```
 
 - build_multi_branch_pipeline
 ```
 Create new build_multi_branch_pipeline pipeline https://github.com/ngtrainings/HelloNextGen.git
-Submit new build iwth params
+Submit new build with params
 Verify pipeline
 ```
