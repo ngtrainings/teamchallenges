@@ -58,6 +58,8 @@ url_green=`minikube service springboot-helloworld-svc-green --url`
 echo 'green service url shows V2 -> '
 curl $url_green
 
+kubectl get all
+
 kubectl apply -f switch-blue-to-green.yaml
 
 url_green=`minikube service springboot-helloworld-svc-green --url`
