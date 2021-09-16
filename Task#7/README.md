@@ -3,8 +3,9 @@
 ## Helloworld Spring Boot app
 `git clone https://github.com/ngtrainings/teamchallenges.git`
 
-## K8s YAML Creator
+## Reference links
 Link to Brandon Potter's YML builder - [https://static.brandonpotter.com/kubernetes/DeploymentBuilder.html](https://static.brandonpotter.com/kubernetes/DeploymentBuilder.html)
+Link to Deployment Strategies - [https://blog.container-solutions.com/kubernetes-deployment-strategies](https://blog.container-solutions.com/kubernetes-deployment-strategies) 
 
 ## Deployment Strategies
 - Recreate
