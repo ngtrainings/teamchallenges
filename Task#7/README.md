@@ -118,7 +118,7 @@ curl $url
 
 ### Type 2 using Ingress
 - Create V3 version along with Service object
-- `kubectl apply -f deployment-v1.yaml`
+- `kubectl apply -f deployment-v3.yaml`
 - Ingress config
 - `kubectl apply -f ingress.yml`
 - Remove and make default backend rule in ingress
