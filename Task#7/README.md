@@ -7,6 +7,7 @@
 Link to Brandon Potter's YML builder - [https://static.brandonpotter.com/kubernetes/DeploymentBuilder.html](https://static.brandonpotter.com/kubernetes/DeploymentBuilder.html)
 
 Link to Deployment Strategies - [https://blog.container-solutions.com/kubernetes-deployment-strategies](https://blog.container-solutions.com/kubernetes-deployment-strategies) 
+                                [https://dzone.com/articles/blue-green-deployments-ab-testing-and-canary-relea-2] (https://dzone.com/articles/blue-green-deployments-ab-testing-and-canary-relea-2)
 
 ## Deployment Strategies
 - Recreate
