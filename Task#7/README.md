@@ -22,7 +22,12 @@ Link to Deployment Strategies - [https://dzone.com/articles/blue-green-deploymen
 
 ### Rolling Update Strategy
 - `kubectl apply -f rolling-update-strategy.yaml`
-
+- `Using Openshift`
+```
+login into Openshift
+https://github.com/ngtrainings/HelloWorld.git
+springboot-helloworld-master
+```
 
 ### Blue Green Deployment 
 - `kubectl apply -f blue-v1.yaml`
