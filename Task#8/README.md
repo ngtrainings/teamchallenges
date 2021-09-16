@@ -16,8 +16,9 @@ Add Maven-3.6.1 in global configuration
 
 create new jenkins pipeline job
 
-https://github.com/ngtrainings/teamchallenges.git
-
+Create new build_simple_java pipeline https://github.com/ngtrainings/teamchallenges.git
+prefix jenkinsfile name with teamchallenges/Task#5
+Submit new build
 
 ```
 
