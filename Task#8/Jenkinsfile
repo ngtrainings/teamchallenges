@@ -21,7 +21,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
 		//bat "build images"
-                bat "docker build -f springboot-helloworld-master/Dockerfile-Spring-t ngtrainings/springboot-helloworld-master:v4 ."
+                bat "docker build -f springboot-helloworld-master/Dockerfile-Spring -t ngtrainings/springboot-helloworld-master:v4 ."
             }
         }
 	stage('Docker Images push to Registory') {
