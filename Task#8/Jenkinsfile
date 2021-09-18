@@ -2,7 +2,7 @@ pipeline {
     environment {
         def mavenHome = tool name:"Maven-3.6.1", type:"maven"
         def mavenCMD = "${mavenHome}/bin/mvn"
-	//DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
+	DOCKER_REGISTRY_CREDENTIALS = credentials('DOCKER_REGISTRY_CREDENTIALS')
     }
     
     agent any
@@ -20,15 +20,15 @@ pipeline {
         }
         stage('Build Docker Images') {
             steps {
-		bat "build images"
-                //sh "docker build -t ngtrainings/springboot-helloworld-master:v2"
+		//bat "build images"
+                bat "docker build -t ngtrainings/springboot-helloworld-master:v2"
             }
         }
 	stage('Docker Images push to Registory') {
             steps {
-		bat "push Images to dockerhub"
-		//sh "docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW}"
-                //sh "docker push ngtrainings/springboot-helloworld-master:v2"        	
+		//bat "push Images to dockerhub"
+		bat "docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW}"
+                bat "docker push ngtrainings/springboot-helloworld-master:v2"        	
             }
         }
 	stage('Deploy docker Images in k8s') {
