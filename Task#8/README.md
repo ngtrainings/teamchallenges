@@ -1,3 +1,12 @@
+
+- CI CD Pipeline - local setup
+```
+Create new CI CD Pipeline for https://github.com/ngtrainings/teamchallenges.git
+Submit new build
+Verify v4 image in dockerhub
+Test v4 code in local
+```
+
 - docker images publish to docker hub via Jenkins CI/CD pipelines
 ```
 Click on https://www.katacoda.com/courses/docker/deploying-first-container
