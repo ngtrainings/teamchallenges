@@ -1,4 +1,4 @@
-- run a "Word Press" application on Kubernetes and scale up
+- run a "Drupal, postgres and phadmin" application on Kubernetes and scale up
 ```
 # clink on https://learning.oreilly.com/scenarios/deploy-containers-to/9781492061984/ url 
 # wait for k8s to luanch and execute below commands
