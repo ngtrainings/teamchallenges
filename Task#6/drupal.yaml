@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: drupal-secret
+type: Opaque
+data:
+    username: dXNlcg==
+    password: cGFzcw==
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: drupal-dep
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: drupal-dep
+    spec:
+      containers:
+        - name: drupal-dep
+          image: 'drupal:8-apache'
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: drupal-svc
+  labels:
+    name: drupal-dep
+spec:
+  selector:
+    app: drupal-dep
+  ports:
+    - port: 81
+      targetPort: 80
+      protocol: TCP
+  type: NodePort

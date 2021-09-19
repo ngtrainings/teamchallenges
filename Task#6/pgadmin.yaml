@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pgadmin-secret
+type: Opaque
+data:
+    password: cGFzcw==
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin-dep
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: pgadmin-dep
+    spec:
+      containers:
+        - name: pgadmin-dep
+          image: 'dpage/pgadmin4:4.18'
+          ports:
+            - containerPort: 80
+          env:
+          - name: PGADMIN_DEFAULT_EMAIL
+            value: pgadmin4@pgadmin.org
+          - name: PGADMIN_DEFAULT_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                    name: pgadmin-secret
+                    key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin-svc
+  labels:
+    name: pgadmin-dep
+spec:
+  selector:
+    app: pgadmin-dep
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
