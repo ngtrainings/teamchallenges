@@ -31,7 +31,7 @@ pipeline {
         }
 	stage('Deploy docker Images in k8s') {
             steps {
-		bat "springboot-helloworld-master/kubectl apply -f helloworld.yaml"
+		bat "kubectl apply -f springboot-helloworld-master/helloworld.yaml"
             }
         }
     }
