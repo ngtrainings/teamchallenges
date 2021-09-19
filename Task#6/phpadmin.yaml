@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin-dep
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin-dep
+    spec:
+      containers:
+        - name: phpmyadmin-dep
+          image: 'phpmyadmin/phpmyadmin'
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin-svc
+  labels:
+    name: phpmyadmin-dep
+spec:
+  selector:
+    app: phpmyadmin-dep
+  ports:
+    - port: 81
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
