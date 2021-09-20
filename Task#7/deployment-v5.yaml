@@ -6,7 +6,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: springboot-helloworld-v5
+      app: springboot-helloworld
+      version : "v5"
   strategy:
     type: RollingUpdate
     rollingUpdate:
