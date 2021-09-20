@@ -51,7 +51,6 @@ spec:
                     key: password                    
           - name: MYSQL_DATABASE
             value: demodb
-            
 
 ---
 apiVersion: v1
