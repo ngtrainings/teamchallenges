@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-helloworld-v6
+  labels:
+    name: springboot-helloworld
+    version: "v6"
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: springboot-helloworld
+    version: "v6"
