@@ -117,6 +117,8 @@ curl $url
 ```
 
 ### Type 2 using Ingress
+- git clone https://github.com/ngtrainings/teamchallenges.git
+- cd teamchallenges/Task#7
 - Create V5 PROD version with only /home url
 - `kubectl apply -f deployment-v5.yaml`
  
