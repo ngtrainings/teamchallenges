@@ -20,10 +20,12 @@ open WebPreview at portno: 8080
 ```
 git clone https://github.com/ngtrainings/HelloWorld/
 cd HelloWorld/springboot-helloworld-master/
-docker build -t helloworld .
+docker build -t ngtrainings/springboot-helloworld-master:v5 .
 docker images
-docker run -p80:2020 helloworld
+docker run -p80:8080 ngtrainings/springboot-helloworld-master:v5
 open WebPreview at portno: 80
+docker login
+docker push ngtrainings/springboot-helloworld-master:v5
 ```
 
 - Task#1.4
