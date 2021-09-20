@@ -25,16 +25,17 @@ kubectl get svc
 
 ```
 
-- run a "Wordpress, mongodb and mongdb express" application on Kubernetes and scale up
+- run a "Wordpress, phpadmin and mariadb" application on Kubernetes and scale up
 ```
 # clink on 
 # wait for k8s to luanch and execute below commands
 
 git clone https://github.com/ngtrainings/teamchallenges.git
 cd teamchallenges/Task#6
-kubectl apply -f wp.yaml
-kubectl apply -f mongo.yaml
-kubectl apply -f mongoexp.yaml
+kubectl apply -f mariadb.yaml
+sleep 30
+kubectl apply -f wordpress.yaml
+kubectl apply -f phpadmin.yaml
 
 # Wait for pods to come up
 status=true 
