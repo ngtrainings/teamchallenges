@@ -134,10 +134,5 @@ curl $url
 - `kubectl get pod -o=wide`
 - `kubectl get all`
 
-- remove the Nodeport config 
-- `kubectl apply -f update_service-v5.yaml`
-- `kubectl apply -f update_service-v6.yaml`
-- `kubectl get all`
-
-- Remove and make default backend rule in ingress
+- Remove and make default backend rule in ingress and redirect traffic to V6 version
 - `kubectl apply -f ingress-default.yaml`
