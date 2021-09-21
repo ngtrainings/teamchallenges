@@ -40,4 +40,3 @@ spec:
   selector:
     app: springboot-helloworld
     version: "v6"
-  type: NodePort
