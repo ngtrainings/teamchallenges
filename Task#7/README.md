@@ -125,10 +125,14 @@ curl $url
 - Create V6 NEW version with /ingress and /home url
 - `kubectl apply -f deployment-v6.yaml`
 
-- Enable Ingress config to redirect ingress to V6 service and home request to V5 env
+- Enable Ingress in minikube and deploy Ingress config to redirect ingress to V6 service and home request to V5 env
+- `minikube addons enable ingress`
+- `kubectl apply -f ingress.yml`
+- 
+- remove the Nodeport config 
 - `kubectl apply -f update_service-v5.yaml`
 - `kubectl apply -f update_service-v6.yaml`
-- `kubectl apply -f ingress.yml`
+
  
 - Remove and make default backend rule in ingress
 - `kubectl apply -f ingress-default.yml`
