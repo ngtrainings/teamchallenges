@@ -127,12 +127,16 @@ curl $url
 
 - Enable Ingress in minikube and deploy Ingress config to redirect ingress to V6 service and home request to V5 env
 - `minikube addons enable ingress`
+- `kubectl get pods -n kube-system`
 - `kubectl apply -f ingress.yml`
-- 
+- `kubectl get ingress -o=wide`
+- `kubectl get pod -o=wide`
+- `kubectl get all`
+
 - remove the Nodeport config 
 - `kubectl apply -f update_service-v5.yaml`
 - `kubectl apply -f update_service-v6.yaml`
+- `kubectl get all`
 
- 
 - Remove and make default backend rule in ingress
 - `kubectl apply -f ingress-default.yml`
