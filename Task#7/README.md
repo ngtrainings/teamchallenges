@@ -117,6 +117,7 @@ curl $url
 ```
 
 ### Type 2 using Ingress
+- Clink on https://learning.oreilly.com/scenarios/deploy-containers-to/9781492062059/   and below commands
 - git clone https://github.com/ngtrainings/teamchallenges.git
 - cd teamchallenges/Task#7
 - Create V5 PROD version with only /home url
