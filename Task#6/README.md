@@ -24,7 +24,7 @@ kubectl get pods
 kubectl get svc
 
 ```
-
+- https://learning.oreilly.com/scenarios/deploy-containers-to/9781492062059/
 - run a "Wordpress, phpadmin and mariadb" application on Kubernetes and scale up
 ```
 # clink on 
