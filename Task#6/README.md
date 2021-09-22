@@ -22,12 +22,11 @@ done
 # list down the pod and services details
 kubectl get pods
 kubectl get svc
-
 ```
-- https://learning.oreilly.com/scenarios/deploy-containers-to/9781492062059/
+
 - run a "Wordpress, phpadmin and mariadb" application on Kubernetes and scale up
 ```
-# clink on 
+- https://learning.oreilly.com/scenarios/deploy-containers-to/9781492062059/
 # wait for k8s to luanch and execute below commands
 
 git clone https://github.com/ngtrainings/teamchallenges.git
@@ -55,5 +54,4 @@ kubectl get svc
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop/
-
 ```
