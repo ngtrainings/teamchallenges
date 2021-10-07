@@ -55,3 +55,22 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/cre
 https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 https://andrewlock.net/running-kubernetes-and-the-dashboard-with-docker-desktop/
 ```
+
+
+- run a "Wordpress, phpadmin and mariadb" application deployment via k8s dashboard
+```
+- https://learning.oreilly.com/scenarios/kubernetes-fundamentals-kubernetes/9781492083917/
+# wait for k8s to luanch and deploy yaml files
+login with token
+click on + icon
+
+Deploy below list 3 yaml files
+mariadb.yaml
+wordpress.yaml
+phpadmin.yaml
+
+Open phpadmin using broswer and select Nodeport from services
+Open wordpress using broswer and select Nodeport from services
+
+Post wordpress install, mariadb updated with wordpress tables.
+```
